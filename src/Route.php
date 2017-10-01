@@ -16,20 +16,6 @@ class Route
 
     /**
      * @param $orders
-     * @return mixed
-     */
-//    public function processing($orders)
-//    {
-//        $i = 0;
-//        foreach ($orders as $order) {
-//            $i++;
-//            $order[$i]->processed_at = round($order->vector/ 60, 0);
-//        }
-//        return $orders->processed_at;
-//    }
-
-    /**
-     * @param $orders
      */
     public function delivery($orders)
     {
@@ -39,7 +25,6 @@ class Route
         $d = [9999, '-'];
 
         $startPoint = [0, 0];
-//        var_dump($orders[0]);
 //        dot A
         $ab = $this->lengthVector($startPoint, $orders[0][0]->coordinates);
         $ac = $this->lengthVector($startPoint, $orders[0][1]->coordinates);
