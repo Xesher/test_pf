@@ -1,6 +1,3 @@
 
 .gitignore
-.idea/inspectionProfiles/
-.idea/modules.xml
-.idea/test_pf.iml
-.idea/workspace.xml
+/.idea

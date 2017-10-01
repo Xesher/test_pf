@@ -1,7 +1,17 @@
 <?php declare(strict_types=1);
-/**
- * Created by PhpStorm.
- * User: admin
- * Date: 01.10.2017
- * Time: 12:43
- */
+namespace App;
+
+class Cook
+{
+    /**
+     * @param array $orders
+     * @return array
+     */
+    public function processing(array $orders): array
+    {
+        foreach ($orders as $order) {
+            $order->processed_at = $order->timeSend + $order->timeCook;
+        }
+        return $orders;
+    }
+}
