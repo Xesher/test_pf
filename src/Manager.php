@@ -6,6 +6,7 @@ class Manager
 {
     /**
      * @param $orders
+     * @return array
      */
     public function processing(array $orders)
     {
