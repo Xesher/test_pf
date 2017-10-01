@@ -9,7 +9,6 @@ class Order
     public $timeSend;
     public $timeCook;
     public $coordinates = [0, 0];
-    public $vector;
     public $processed_at;
     public $lengthVector;
     public $timeDelivery;
@@ -29,5 +28,17 @@ class Order
         $this->coordinates[0] = $coordinates[0];
         $this->coordinates[1] = $coordinates[1];
         return $this;
+    }
+    public function delivery(array $orderList): array
+    {
+
+        foreach ($orderList as $orders) {
+            foreach ($orders as $order) {
+//            die(var_dump($order->coordinates[0]));
+            $order->lengthVector = round(sqrt(pow(($order->coordinates[0]), 2) + pow(($order->coordinates[1]), 2)), 2);
+            $order->timeDelivery = round($order->lengthVector/60);
+        }
+        }
+        return $orderList;
     }
 }
