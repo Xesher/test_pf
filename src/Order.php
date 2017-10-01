@@ -18,26 +18,31 @@ class Order
      * @param int $timeSend
      * @param int $timeCook
      * @param array $coordinates
-     * @return $this
+     * @return Order
      */
-    public function make(int $timeSend, int $timeCook, array $coordinates)
+    public function make(int $timeSend, int $timeCook, array $coordinates): Order
     {
         $this->orderId = self::$id++;
         $this->timeSend = $timeSend;
         $this->timeCook = $timeCook;
         $this->coordinates[0] = $coordinates[0];
         $this->coordinates[1] = $coordinates[1];
+        
         return $this;
     }
+    
+    /**
+     * @param array $orderList
+     * @return array
+     */
     public function delivery(array $orderList): array
     {
 
         foreach ($orderList as $orders) {
-            foreach ($orders as $order) {
-//            die(var_dump($order->coordinates[0]));
-            $order->lengthVector = round(sqrt(pow(($order->coordinates[0]), 2) + pow(($order->coordinates[1]), 2)), 2);
-            $order->timeDelivery = round($order->lengthVector/60);
-        }
+            foreach ($orders as &$order) {
+                $order->lengthVector = round(sqrt(pow(($order->coordinates[0]), 2) + pow(($order->coordinates[1]), 2)), 2);
+                $order->timeDelivery = round($order->lengthVector/60);
+            }
         }
         return $orderList;
     }
