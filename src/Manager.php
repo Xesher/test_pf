@@ -1,9 +1,14 @@
 <?php declare(strict_types=1);
+
 namespace App;
 
-/**
- * Created by PhpStorm.
- * User: admin
- * Date: 01.10.2017
- * Time: 12:43
- */
+class Manager
+{
+    /**
+     * @param $orders
+     */
+    public function processing(array $orders)
+    {
+        return array_chunk($orders, 3);
+    }
+}
