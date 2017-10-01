@@ -1,0 +1,6 @@
+{
+    "name": "admin/test-pf",
+    "autoload": {
+        "psr-4": {"App\\": "src/"}
+    }
+}
